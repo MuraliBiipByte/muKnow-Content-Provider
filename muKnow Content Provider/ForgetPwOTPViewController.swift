@@ -48,7 +48,7 @@ class ForgetPwOTPViewController: UIViewController {
        
         print("\(paramsDict) while Submitting")
 
-        ApiManager().getRequestWithParameters(service:WebServices.FORGET_PWD_OTP, params: paramsDict as [String : Any])
+        ApiManager().postRequestWithParameters(service:WebServices.FORGET_PWD_OTP, params: paramsDict as [String : Any])
         { (result, success) in
             self.view.StopLoading()
             
@@ -132,7 +132,7 @@ class ForgetPwOTPViewController: UIViewController {
             "email":EmailId!
         ]
       //ApiManager().postRequestToGetAccessToken(service:WebServices.FORGET_PWD, params: paramsDict)
-        ApiManager().getRequestWithParameters(service:WebServices.FORGET_PWD, params: resendParamsDict)
+        ApiManager().postRequestWithParameters(service:WebServices.FORGET_PWD, params: resendParamsDict)
                 { (result, success) in
                     self.view.StopLoading()
                     

@@ -21,8 +21,55 @@ class RegistrationVC: UIViewController {
     
     var paramsDict = [String:Any]()
     
-
+    @IBOutlet weak var profileImgView: UIImageView!
+    @IBOutlet weak var profileImgBtn: UIButton!
     
+    @IBAction func profileImgBtnTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+                    self.openCamera()
+                }))
+
+                alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+                    self.openGallery()
+                }))
+
+                alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+
+                self.present(alert, animated: true, completion: nil)
+    }
+    func openCamera()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    func openGallery()
+   {
+       if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+           let imagePicker = UIImagePickerController()
+           imagePicker.delegate = self
+           imagePicker.allowsEditing = true
+           imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
+           self.present(imagePicker, animated: true, completion: nil)
+       }
+       else
+       {
+           let alert  = UIAlertController(title: "Warning", message: "You don't have permission to access gallery.", preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+           self.present(alert, animated: true, completion: nil)
+       }
+   }
     @IBOutlet weak var termsOfServiceBtn: UIButton!
     let yourAttributes: [NSAttributedString.Key: Any] = [
     .font: UIFont.systemFont(ofSize: 14),
@@ -97,6 +144,10 @@ class RegistrationVC: UIViewController {
             self.showAlert(message: "Password & Confirm Password are not matching.")
             return
         }
+        if profileImgView.image == nil {
+            self.showAlert(message: "Please provide Profile Image")
+            return
+        }
        
         
         
@@ -130,6 +181,54 @@ class RegistrationVC: UIViewController {
         print("Registration paramDict = \(paramsDict)")
         
         self.view.StartLoading()
+        ApiManager().registrationWithImage(imageToUpload: profileImgView.image!, service: WebServices.REGISTRATION, params: paramsDict) { [self] (result, success) in
+            
+            self.view.StopLoading()
+            if success == false
+            {
+                self.showAlert(message: result as! String)
+                return
+                
+            }
+            else
+            {
+                
+                /*
+                let resultDictionary = result as! [String : Any]
+                
+                
+//                _ = User(userDictionay: resultDictionary)
+                
+                print("Registration ResultDict = ",resultDictionary)
+                // STORE THE USER INFORMATION
+                
+                let keyExists = resultDictionary["error"] != nil
+                if keyExists{
+                    DispatchQueue.main.async {
+                        self.showAlert(message: "Email Already Registered")
+                    }
+                    
+                }else{
+                    let changePwVc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterOTPVCSBID") as! RegisterOTPVC
+//                    changePwVc.params = self.paramsDict
+                    changePwVc.id = resultDictionary["id"] as? String
+                    changePwVc.email = paramsDict["email_id"] as? String
+                    self.present(changePwVc, animated: true, completion: nil)
+                } */
+                
+
+//                self.showAlert(message: "User Registered Successfully...")
+                let changePwVc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterOTPVCSBID") as! RegisterOTPVC
+//                    changePwVc.params = self.paramsDict
+//                changePwVc.id = resultDictionary["id"] as? String
+                changePwVc.email = paramsDict["email_id"] as? String
+                self.present(changePwVc, animated: true, completion: nil)
+            }
+        }
+        
+        
+        
+        /*
         ApiManager().getRequestWithParameters(service: WebServices.REGISTRATION, params: paramsDict) { [self] (result, success) in
             self.view.StopLoading()
             if success == false
@@ -162,7 +261,7 @@ class RegistrationVC: UIViewController {
                     self.present(changePwVc, animated: true, completion: nil)
                 }
             }
-        }
+        } */
     }
     
     
@@ -230,4 +329,14 @@ extension RegistrationVC : UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+}
+extension RegistrationVC :  UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    if let pickedImage = info[.originalImage] as? UIImage {
+        let correctedImage = pickedImage.upOrientationImage()
+//        uploadImage(selectedImg: correctedImage!)
+        self.profileImgView.image = correctedImage
+    }
+    picker.dismiss(animated: true, completion: nil)
+}
 }

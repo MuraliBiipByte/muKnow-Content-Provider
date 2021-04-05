@@ -12,7 +12,7 @@ class RegisterOTPVC: UIViewController {
     @IBOutlet var OTPTxt: UITextField!
     
     var params : [String:Any] = [:]
-    var id : String?
+    //var id : String?
     var email : String?
     
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ class RegisterOTPVC: UIViewController {
     func sendOTP() {
         
         self.view.StartLoading()
-        ApiManager().getRequestWithParameters(service:WebServices.OTP_SUCCESS, params: params as [String : Any])
+        ApiManager().postRequestWithParameters(service:WebServices.OTP_SUCCESS, params: params as [String : Any])
         { (result, success) in
             self.view.StopLoading()
             

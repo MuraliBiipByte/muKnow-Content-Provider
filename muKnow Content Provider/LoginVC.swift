@@ -55,7 +55,7 @@ class LoginVC: UIViewController {
         
         
         
-        ApiManager().getRequestWithParameters(service: WebServices.Login, params: paramsDict, completion:
+        ApiManager().postRequestWithParameters(service: WebServices.Login, params: paramsDict, completion:
                 { (result, success) in
                     
             

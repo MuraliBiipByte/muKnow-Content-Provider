@@ -13,6 +13,9 @@
 		1823ED7925EE299800BF22DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1823ED7725EE299800BF22DD /* Main.storyboard */; };
 		1823ED7B25EE299900BF22DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1823ED7A25EE299900BF22DD /* Assets.xcassets */; };
 		1823ED7E25EE299900BF22DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1823ED7C25EE299900BF22DD /* LaunchScreen.storyboard */; };
+		1844C7A12612313200EA763A /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844C7A02612313200EA763A /* ImageExtension.swift */; };
+		184C1322261A0A1E00EA5B95 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C1321261A0A1E00EA5B95 /* HomeCollectionViewCell.swift */; };
+		184C1325261B044B00EA5B95 /* ImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184C1324261B044B00EA5B95 /* ImageViewExtension.swift */; };
 		184D216B25F0BF020049AC83 /* CustomLibraries in Resources */ = {isa = PBXBuildFile; fileRef = 184D216A25F0BF020049AC83 /* CustomLibraries */; };
 		184D216E25F0D51B0049AC83 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D216D25F0D51B0049AC83 /* HomeVC.swift */; };
 		184E508B25F7655E00139193 /* StoryBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E508A25F7655E00139193 /* StoryBoardExtension.swift */; };
@@ -44,6 +47,9 @@
 		1823ED7A25EE299900BF22DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1823ED7D25EE299900BF22DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1823ED7F25EE299900BF22DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1844C7A02612313200EA763A /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		184C1321261A0A1E00EA5B95 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		184C1324261B044B00EA5B95 /* ImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewExtension.swift; sourceTree = "<group>"; };
 		184D216425F0BEDF0049AC83 /* muKnow Content Provider-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "muKnow Content Provider-Bridging-Header.h"; sourceTree = "<group>"; };
 		184D216A25F0BF020049AC83 /* CustomLibraries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CustomLibraries; sourceTree = "<group>"; };
 		184D216D25F0D51B0049AC83 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 				188B2A0525F678CB00174E44 /* Constants.swift */,
 				184E50AC25F78BC200139193 /* ApiManager.swift */,
 				18A63FF425F22B250040A2A9 /* Reachability.swift */,
+				184C1321261A0A1E00EA5B95 /* HomeCollectionViewCell.swift */,
 			);
 			path = "muKnow Content Provider";
 			sourceTree = "<group>";
@@ -142,6 +149,8 @@
 				184E508925F7652900139193 /* StoryBoard */,
 				184E50AF25F795B400139193 /* StringExtension.swift */,
 				184E50B225F7977D00139193 /* ViewExtension.swift */,
+				184C1324261B044B00EA5B95 /* ImageViewExtension.swift */,
+				1844C7A02612313200EA763A /* ImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +292,7 @@
 				18921DA92600A43E00246724 /* ForgetPwOTPViewController.swift in Sources */,
 				184E50BC25F9FD6800139193 /* CommonFunctions.swift in Sources */,
 				18921DAC2600A44200246724 /* ChangeNewPWViewController.swift in Sources */,
+				1844C7A12612313200EA763A /* ImageExtension.swift in Sources */,
 				1823ED7625EE299800BF22DD /* LoginVC.swift in Sources */,
 				188B2A0625F678CB00174E44 /* Constants.swift in Sources */,
 				184E508B25F7655E00139193 /* StoryBoardExtension.swift in Sources */,
@@ -293,7 +303,9 @@
 				188B2A0025F671A400174E44 /* RegisterOTPVC.swift in Sources */,
 				184E50B025F795B400139193 /* StringExtension.swift in Sources */,
 				184E50B925F913D700139193 /* NotificationsVC.swift in Sources */,
+				184C1322261A0A1E00EA5B95 /* HomeCollectionViewCell.swift in Sources */,
 				184E50B325F7977D00139193 /* ViewExtension.swift in Sources */,
+				184C1325261B044B00EA5B95 /* ImageViewExtension.swift in Sources */,
 				184E50AD25F78BC200139193 /* ApiManager.swift in Sources */,
 				184E50B625F8AE2B00139193 /* StructAndEnum.swift in Sources */,
 				188B29F625F657C000174E44 /* LocalStorage.swift in Sources */,

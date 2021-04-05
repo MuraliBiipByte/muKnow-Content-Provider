@@ -46,5 +46,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow Mu-Know Content Provider to take pictures and record video?</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library is required for Muknow Content Provider benefits for you</string>
 </dict>
 </plist>

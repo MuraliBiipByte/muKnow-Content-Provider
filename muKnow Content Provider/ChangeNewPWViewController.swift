@@ -55,7 +55,7 @@ class ChangeNewPWViewController: UIViewController {
                 "email" : self.EmailId!
             ]
             print("\(paramsDict)")
-             ApiManager().getRequestWithParameters(service:WebServices.CHANGE_PWD, params: paramsDict as [String : Any])
+             ApiManager().postRequestWithParameters(service:WebServices.CHANGE_PWD, params: paramsDict as [String : Any])
             { (result, success) in
                 self.view.StopLoading()
                 

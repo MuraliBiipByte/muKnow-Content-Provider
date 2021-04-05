@@ -41,7 +41,7 @@ class ForgetPwdVC: UIViewController {
         
         self.view.StartLoading()
         
-        ApiManager().getRequestWithParameters(service:WebServices.FORGET_PWD, params: paramsDict)
+        ApiManager().postRequestWithParameters(service:WebServices.FORGET_PWD, params: paramsDict)
         { (result, success) in
             self.view.StopLoading()
             
