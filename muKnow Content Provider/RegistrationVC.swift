@@ -81,6 +81,8 @@ class RegistrationVC: UIViewController {
         
 //        btnTermsConditions.setImage(#imageLiteral(resourceName: "unCheck"), for:.normal)
 
+        profileImgView.image = UIImage(named: "NewProfile")
+        
         nameTxt.delegate = self
         emailTxt.delegate = self
         mobileTxt.delegate = self
@@ -144,16 +146,13 @@ class RegistrationVC: UIViewController {
             self.showAlert(message: "Password & Confirm Password are not matching.")
             return
         }
-        if profileImgView.image == nil {
+        
+        if profileImgView.image == UIImage(named: "NewProfile"){
             self.showAlert(message: "Please provide Profile Image")
             return
         }
        
-        
-        
-        
-        
-        
+    
         if (termsAccept != true){
             self.showAlert(message: "Please Accept Terms & Conditions")
             return
@@ -166,7 +165,7 @@ class RegistrationVC: UIViewController {
             "confirm_password":self.confirmPwTxt.text!,
             "email_id":self.emailTxt.text!,
             "device_type":"iOS",
-            "device_token" : "123456",
+            "device_token" : APPDELEGATE.getDeviceToken(), //"123456",
             "telcode" : "65",
             "phone":self.mobileTxt.text!,
         ]
@@ -181,6 +180,49 @@ class RegistrationVC: UIViewController {
         print("Registration paramDict = \(paramsDict)")
         
         self.view.StartLoading()
+        
+        ApiManager().uploadImageRequest3(imageToUpload: profileImgView.image!, service: WebServices.REGISTRATION, params: paramsDict) { [self] (result, success) in
+            
+            self.view.StopLoading()
+            if success == false
+            {
+                self.showAlert(message: result as! String)
+                return
+                
+            }
+            else
+            {
+             
+                print("result ==== " ,result)
+                
+                let response = result as! [String : Any]
+                print("Registration Response :",response)
+                
+                if (response["data"] as? NSDictionary) != nil {
+                    let data = (response["data"] as? NSDictionary)
+                    if (data!["response"] as? NSDictionary) != nil {
+                        let resp = (data!["response"] as? NSDictionary)
+                        
+                        let message = "\(resp!["message"]!)"
+                        let status = "\(resp!["status"]!)"
+                        
+                        if status == "0"{
+                            self.showAlert(message: message)
+                        }else{
+                            let changePwVc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterOTPVCSBID") as! RegisterOTPVC
+                            changePwVc.email = paramsDict["email_id"] as? String
+                            self.present(changePwVc, animated: true, completion: nil)
+                        }
+
+                    }
+                }
+            }
+        }
+        
+        
+        
+        
+        /*
         ApiManager().registrationWithImage(imageToUpload: profileImgView.image!, service: WebServices.REGISTRATION, params: paramsDict) { [self] (result, success) in
             
             self.view.StopLoading()
@@ -193,15 +235,32 @@ class RegistrationVC: UIViewController {
             else
             {
                 
+                /* let resultDictionary = result as! [String : Any]
+                print("Registration ResultDict = ",resultDictionary)*/
+                
                 /*
-                let resultDictionary = result as! [String : Any]
+                let apiResponse = result as! [String : Any]
+                let dataDict = apiResponse["data"] as! [String : Any]
+                let response = dataDict["response"] as! [String : Any]
+                
+                let message = "\(response["message"]!)"
+                let status = "\(response["status"]!)"
+                print("message = ",message)
+                print("Status = ",status)
+                
+                if status == "0"{
+                    self.showAlert(message: message)
+                }else{
+                    let changePwVc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterOTPVCSBID") as! RegisterOTPVC
+                    changePwVc.email = paramsDict["email_id"] as? String
+                    self.present(changePwVc, animated: true, completion: nil)
+                } */
                 
                 
-//                _ = User(userDictionay: resultDictionary)
                 
-                print("Registration ResultDict = ",resultDictionary)
                 // STORE THE USER INFORMATION
                 
+                /*
                 let keyExists = resultDictionary["error"] != nil
                 if keyExists{
                     DispatchQueue.main.async {
@@ -218,13 +277,14 @@ class RegistrationVC: UIViewController {
                 
 
 //                self.showAlert(message: "User Registered Successfully...")
+                
                 let changePwVc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterOTPVCSBID") as! RegisterOTPVC
 //                    changePwVc.params = self.paramsDict
 //                changePwVc.id = resultDictionary["id"] as? String
                 changePwVc.email = paramsDict["email_id"] as? String
                 self.present(changePwVc, animated: true, completion: nil)
             }
-        }
+        } */
         
         
         

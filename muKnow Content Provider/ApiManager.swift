@@ -8,17 +8,25 @@
 
 import Foundation
 import Alamofire
+import MobileCoreServices
 
 
 struct WebServices {
  
-    //dev
-    static let BASE_URL_SERVICE = "http://devservices.mu-know.com/"
-    static let BASE_URL = ""
+    
+    
 //    static let BASE_URL = "https://lessonsgowhere.com.sg/"
 //    static let ARTICLE_BASE_URL = "http://devadmin.mu-know.com/"
     
 //    http://devservices.mu-know.com/smiles_trainer_login?email=train3@yopmail.com&password=qwe123
+    
+    
+    //Staging
+    static let BASE_URL_SERVICE = "http://stgservices.mu-know.com/"
+    
+    /*
+    //dev
+    static let BASE_URL_SERVICE = "http://devservices.mu-know.com/" */
     
     static let Login = "smiles_trainer_login"
     static let REGISTRATION = "smiles_add_trainer_users"
@@ -27,11 +35,16 @@ struct WebServices {
     static let FORGET_PWD_OTP = "smiles_forgotpassword_otp_validation_trainers"
     static let CHANGE_PWD = "smiles_reset_password_trainers"
     static let DASHBOARD = "smiles_trainer_dashboardlist"
-}
+    static let ARTICLE_LIST = "smiles_trainer_articles_list"
+    static let ARTICLE_DETAIL = "smiles_trainer_articles_list_quiz_list"
+    static let RESEND_OTP = "smiles_trainer_register_resendemail_otp"
+} 
 
 
-class ApiManager {
+class ApiManager : NSObject {
  
+    
+    
    
     func getRequest(service:String,param:String, completion: @escaping (_ result:Any,_ success:Bool) -> ())
         {
@@ -99,6 +112,41 @@ class ApiManager {
             }
         }
 
+    func postRequest(service:String,params: String, completion: @escaping (_ result:Any,_ success:Bool) -> ())
+        {
+            let urlString = WebServices.BASE_URL_SERVICE + service + "/" + params
+            let serviceUrl = URL(string: urlString)
+           print(serviceUrl!)
+            if !(Alamofire.NetworkReachabilityManager()?.isReachable)!
+            {
+                completion("The Internet connection appears to be offline.",false)
+                return
+            }
+            
+        AF.request(serviceUrl!, method: .post, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON
+                {(response:DataResponse) in
+                    
+                    switch response.result
+                    {
+                      case .success(let data):
+                        print(response.result)
+                        
+                         let jsonResponse = data as! [String : Any]
+                        print(jsonResponse)
+                       
+                         completion(jsonResponse,true)
+                        
+   
+                        break
+                    case .failure(let error):
+                        print(response.result)
+                        completion(error.localizedDescription,false)
+                        break
+                    }
+            }
+        }
+    
+    /*
     func registrationWithImage(imageToUpload:UIImage,service:String,params: [String:Any], completion: @escaping (_ result:Any,_ success:Bool) -> ())
     {
         let urlString = WebServices.BASE_URL_SERVICE + service
@@ -114,149 +162,69 @@ class ApiManager {
               /* "Authorization": "your_access_token",  in case you need authorization header */
               "Content-type": "multipart/form-data"
           ]
-        AF.upload(
-                  multipartFormData: { multipartFormData in
-                    for (key, value) in params {
-                           multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-                       }
-                    if let imageData = imageToUpload.jpegData(compressionQuality: 1) {
-                      multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
-                    }
-              }
-        ,
-                  to: serviceUrl!, method: .post , headers: headers)
-                  .response { resp in
-                      print("REsponse from Image Upload is : ",resp)
-//                    print("RESult from Image Upload is : ",Result)
-                    
-                    
-                    /*
-                     switch resp.result {
-                    case .failure(let error):
-                        print("FAil....",error)
-                        completion(resp,false)
-                        
-                    case .success(let data):
-                      //print(resp.result)
-                      
-                       let jsonResponse = data as! [String : Any]
-                      print("The Json = ",jsonResponse)
-                     
-                       completion(jsonResponse,true)
-                      
- 
-                      break
-                        
-                        /*
-                    case .success( _):
-                        print("sucess ---",resp.result)
-                        print("resp.response ----",resp.response as Any)
-                        //resp.response
-                        
-                        let jsonResponse = resp.response as Any
-                        print("The Json is = ",jsonResponse)
-                        
-                        completion(resp,true) */
-                    }*/
-                    switch resp.result {
-                    case .failure(let error):
-                        print("FAil....",error)
-                        completion(resp,false)
-                    case .success( _):
-                        print("sucess ---",resp.result)
-                        completion(resp,true)
-                    }
-                    
-              }
         
-       /* AF.upload(
-                  multipartFormData: { multipartFormData in
-                    for (key, value) in params {
-                           multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-                       }
-                    if let imageData = imageToUpload.jpegData(compressionQuality: 1) {
-                      multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
-                    }
-              }
-        ,
-            to: serviceUrl!, method: .post , headers: headers).responseJSON { (data) in
-                print("REsponse from Image Upload is : ",data)
-//                    print("RESult from Image Upload is : ",Result)
+        
+        AF.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in params {
+                   multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+               }
+            if let imageData = imageToUpload.jpegData(compressionQuality: 1) {
+              multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
+            }
+        }, to: serviceUrl!,method: .post,headers: headers).responseJSON { (jsonResp) in
+            print("REsponse from Image Upload is : ",jsonResp)
+        }
+    } */
+    
+    
+    
+    
+
+    
+
+    func uploadImageRequest3(imageToUpload:UIImage,service:String,params: [String:Any], completion: @escaping (_ result:Any,_ success:Bool) -> ())
+    {
+        let urlString = WebServices.BASE_URL_SERVICE + service
+        let serviceUrl = URL(string: urlString)
+        print(serviceUrl!)
+        if !(Alamofire.NetworkReachabilityManager()?.isReachable)!
+        {
+            completion("The Internet connection appears to be offline.",false)
+            return
+        }
+    
+        let headers: HTTPHeaders = [
+              "Content-type": "multipart/form-data"
+          ]
+        
+        AF.upload(multipartFormData: { (multipartFormData) in
+            for (key, value) in params {
+                   multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
+               }
+            if let imageData = imageToUpload.jpegData(compressionQuality: 1) {
+              multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
+            }
+        }, to: serviceUrl!,method: .post,headers: headers).responseJSON { (jsonResp) in
+            print("Response from Image Upload is : ",jsonResp)
+            
+            switch jsonResp.result {
+            case .failure(let error):
+                print("FAil....",error)
+                completion(jsonResp,false)
+            case .success( _):
                 
-              completion(data,true)
-            } */
+                print("response ---",jsonResp.response)
+                print("result ---",jsonResp.result)
+                print("value ---",jsonResp.value!)
+                print("data ---",jsonResp.data)
+                completion(jsonResp.value,true)
+            }
+        }
         
-        
-        
-        
-        
-//        Alamofire.upload(multipartFormData: { (multipartFormData) in
-//            for (key, value) in params {
-//                   multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-//               }
-//            if let imageData = imageToUpload.jpegData(compressionQuality: 1) {
-//              multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
-//            }
-//
-//        }, usingThreshold: UInt64.init(), to: serviceUrl!, method: .post, headers: headers) { (result) in
-//            switch result{
-//            case .success(let upload, _, _):
-//                upload.responseJSON { response in
-//                    print("Succesfully uploaded")
-//                    if let err = response.error{
-//                        onError?(err)
-//                        return
-//                    }
-//                    onCompletion?(nil)
-//                }
-//            case .failure(let error):
-//                print("Error in upload: \(error.localizedDescription)")
-//                onError?(error)
-//            }
-//        }
-        
-//        AF.upload(multipartFormData: { (multipart: MultipartFormData) in
-//            for (key, value) in params {
-//                   multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
-//               }
-//            if let imageData = imageToUpload.jpegData(compressionQuality: 1) {
-//              multipartFormData.append(imageData, withName: "image", fileName: "image.png", mimeType: "image/png")
-//            }
-//            },usingThreshold: UInt64.init(),
-//               to: serviceUrl!,
-//               method: .post,
-//               headers: headers,
-//               encodingCompletion: { (result) in
-//                switch result {
-//                case .success(let upload, _, _):
-//                    upload.uploadProgress(closure: { (progress) in
-//                      print("Uploading")
-//                    })
-//                    break
-//                case .failure(let encodingError):
-//                    print("err is \(encodingError)")
-//                        break
-//                    }
-//                })
-                  
-                  
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /* if let data = data,
-            let urlContent = NSString(data: data, encoding: String.Encoding.ascii.rawValue) {
-            print(urlContent)
-        } else {
-            print("Error: \(error)")
-        }*/
+        ;
     }
     
+   
     enum ResponceCodes
     {
         case success, authError, badRequest, requestTimeOut, internalServerError, serviceUnavailable, notFound, forbidden, OtherError, NoInternet
@@ -292,4 +260,12 @@ class ApiManager {
     }
     
     
+}
+
+extension Data {
+    mutating func append(_ string: String, using encoding: String.Encoding = .utf8) {
+        if let data = string.data(using: encoding) {
+            append(data)
+        }
+    }
 }

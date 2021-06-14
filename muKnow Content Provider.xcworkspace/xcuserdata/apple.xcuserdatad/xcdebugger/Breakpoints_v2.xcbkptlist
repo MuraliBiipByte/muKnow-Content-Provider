@@ -3,4 +3,118 @@
    uuid = "FFF6AD60-F5DA-4100-A999-F385221AF284"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "316907B0-C18C-4BCA-B041-007EC85A4A77"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "muKnow Content Provider/ApiManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "postRequestWithParameters(service:params:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "316907B0-C18C-4BCA-B041-007EC85A4A77 - 5a70e6c50d31cb22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "muKnow_Content_Provider.ApiManager.postRequestWithParameters(service: Swift.String, params: Swift.Dictionary&lt;Swift.String, Any&gt;, completion: (Any, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "muKnow Content Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Murali/working%20projects/ContentProvider/muKnow%20Content%20Provider/muKnow%20Content%20Provider/ApiManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "752">
+               </Location>
+               <Location
+                  uuid = "316907B0-C18C-4BCA-B041-007EC85A4A77 - 5a70e6c50d31cb22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "muKnow_Content_Provider.ApiManager.postRequestWithParameters(service: Swift.String, params: Swift.Dictionary&lt;Swift.String, Any&gt;, completion: (Any, Swift.Bool) -&gt; ()) -&gt; ()"
+                  moduleName = "muKnow Content Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Murali/working%20projects/ContentProvider/muKnow%20Content%20Provider/muKnow%20Content%20Provider/ApiManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "1776">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9A548E6-CA0C-4F0C-B746-93282BB5732F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "muKnow Content Provider/RegisterOTPVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "resendOTPBtnTapped(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C9A548E6-CA0C-4F0C-B746-93282BB5732F - c97484dde7573b34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "muKnow_Content_Provider.RegisterOTPVC.resendOTPBtnTapped(__C.UIButton) -&gt; ()"
+                  moduleName = "muKnow Content Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Murali/working%20projects/ContentProvider/muKnow%20Content%20Provider/muKnow%20Content%20Provider/RegisterOTPVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  uuid = "C9A548E6-CA0C-4F0C-B746-93282BB5732F - 7f8076a3cc90f5ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Any, Swift.Bool) -&gt; () in muKnow_Content_Provider.RegisterOTPVC.resendOTPBtnTapped(__C.UIButton) -&gt; ()"
+                  moduleName = "muKnow Content Provider"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Documents/Murali/working%20projects/ContentProvider/muKnow%20Content%20Provider/muKnow%20Content%20Provider/RegisterOTPVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "148">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6F6384A-A800-423F-BCCE-3A6A47AAF90E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "muKnow Content Provider/HomeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "437"
+            endingLineNumber = "437"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

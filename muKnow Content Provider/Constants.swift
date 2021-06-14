@@ -21,3 +21,7 @@ let APPEARENCE_COLOR: UIColor = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 
 //Test STRIPE_PUBLISHABLE_KEY
 let STRIPE_SMILES_PUBLISHABLE_KEY = "pk_test_oIrnO8cu2q4NII2TW3OoG7sp00nQEb2lvI"
 let STRIPE_LGW_PUBLISHABLE_KEY = "pk_test_RpK9SLpBLgyypy8NuoNQ9noZ"
+
+let STORYBOARD_MAIN = UIStoryboard(name:"Main", bundle: Bundle.main)
+let APPDELEGATE = UIApplication.shared.delegate as! AppDelegate
+

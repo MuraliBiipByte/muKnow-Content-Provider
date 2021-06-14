@@ -15,3 +15,5 @@ func setNavigationBar(vc : UIViewController , naviItem : UINavigationItem) {
     
     naviItem.leftBarButtonItem = leftbarButton
 }
+
+ 

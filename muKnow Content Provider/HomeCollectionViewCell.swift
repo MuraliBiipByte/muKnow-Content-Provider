@@ -16,10 +16,25 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak internal var popularTagName: UILabel!
     
     @IBOutlet var popularPrice: UILabel!
-   
     @IBOutlet var popularSFC: UILabel!
-      
       @IBOutlet var popularWSQ: UILabel!
-    
     @IBOutlet var popularElearning: UILabel!
+    
+    
+    //Objects For latest courses
+    @IBOutlet weak internal var imglatestCourses: UIImageView!
+    @IBOutlet weak internal var latestCourseTagName: UILabel!
+    
+    @IBOutlet var latestPrice: UILabel!
+    @IBOutlet var latestSFC: UILabel!
+    @IBOutlet var latestWSQ: UILabel!
+    @IBOutlet var latestElearning: UILabel!
+    
+    
+    //Objects For Favourite courses
+ @IBOutlet var favouritesImg: UIImageView!
+ @IBOutlet var favouritesPrice: UILabel!
+ @IBOutlet var favouriteTitle: UILabel!
+    
+    
 }

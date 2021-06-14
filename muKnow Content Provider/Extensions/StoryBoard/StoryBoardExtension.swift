@@ -30,5 +30,19 @@ extension UIStoryboard{
         static func ForgetPwdVC() -> ForgetPwdVC?{
             return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ForgetPwdVCSBID") as? ForgetPwdVC
         }
+        static func ArticleListVC() -> ArticleListVC?{
+            return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ArticleListVCSBID") as? ArticleListVC
+        }
+        static func ProfileVC() -> ProfileDetailsVC?{
+            return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProfileDetailsVCSBID") as? ProfileDetailsVC
+        }
+        
+        static func OTPValidationVC() -> RegisterOTPVC?{
+            return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RegisterOTPVCSBID") as? RegisterOTPVC
+        }
+        
+        static func MyAccountVC() -> MyAccountVC?{
+            return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MyAccountVCSBID") as? MyAccountVC
+        }
     }
 }

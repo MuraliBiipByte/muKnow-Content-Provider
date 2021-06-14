@@ -7,4 +7,12 @@ target 'muKnow Content Provider' do
 
   # Pods for muKnow Content Provider
 	pod 'Alamofire'
+  
+  # add the Firebase pod for Google Analytics
+  pod 'Firebase/Analytics'
+  
+  pod 'Firebase/Messaging'
+  
+  pod 'SDWebImage'
+  pod 'YouTubePlayer'
 end

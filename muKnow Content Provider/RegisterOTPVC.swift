@@ -12,8 +12,10 @@ class RegisterOTPVC: UIViewController {
     @IBOutlet var OTPTxt: UITextField!
     
     var params : [String:Any] = [:]
+    var paramsForResendOTP : [String:Any] = [:]
     //var id : String?
     var email : String?
+    var doNeedToPop : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,12 @@ class RegisterOTPVC: UIViewController {
         
     }
     @IBAction func back_VC(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        if doNeedToPop{
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     func showAlert(message:String)
@@ -67,7 +74,7 @@ class RegisterOTPVC: UIViewController {
             else
             {
                 let resultDictionary = result as! [String:Any]
-                print("\(resultDictionary)")
+                print("Submit Btn Tapped : \(resultDictionary)")
                 
                 
                 let apiResponse = result as! [String : Any]
@@ -76,9 +83,10 @@ class RegisterOTPVC: UIViewController {
                 
                 
                 let msg = responseDict["message"]! as! String
-                if msg == "Invalid OTP" {
+                if msg == "Not Verified" {
                     DispatchQueue.main.async {
-                        self.showAlert(message: "Invalid OTP")
+                        //self.showAlert(message: "Invalid OTP")
+                        self.showAlert(message: msg)
                     }
                 }else{
 //                    UserDefaults.standard.set(self.params["email"], forKey: "user_email")
@@ -99,4 +107,73 @@ class RegisterOTPVC: UIViewController {
         
     }
 
+    @IBAction func resendOTPBtnTapped(_ sender: UIButton) {
+        
+        /*
+        self.view.StartLoading()
+        ApiManager().postRequest(service: WebServices.REGISTRATION, params: self.params) { (result, success) in
+            self.view.StopLoading()
+            if success == false
+            {
+                self.showAlert(message: result as! String)
+                return
+                
+            }
+            else
+            {
+                let resultDictionary = result as! [String : Any]
+                _ = User(userDictionay: resultDictionary)
+                print("OTP Resent.....")
+                self.showAlert(message: "Mail Sent Successfully")
+                print(resultDictionary)
+                self.id = "\(resultDictionary["id"]!)"
+            }
+        } */
+        self.paramsForResendOTP["email_id"] = self.email
+        self.view.StartLoading()
+        ApiManager().postRequestWithParameters(service:WebServices.RESEND_OTP, params: paramsForResendOTP as [String : Any]){
+            (result, success) in
+            self.view.StopLoading()
+            if success == false
+            {
+                self.showAlert(message: result as! String)
+                return
+            }else{
+                let resultDictionary = result as! [String:Any]
+                print("\(resultDictionary)")
+                
+                
+                let apiResponse = result as! [String : Any]
+                let dataDict = apiResponse["data"] as! [String : Any]
+                let responseDict = dataDict["response"] as! NSDictionary
+                
+                let msg = responseDict["message"]! as! String
+                self.showAlert(message: msg)
+            }
+        }
+        
+        /*
+        ApiManager().postRequest(service: WebServices.RESEND_OTP, params: self.email!) { (result, success) in
+            self.view.StopLoading()
+            if success == false
+            {
+                self.showAlert(message: result as! String)
+                return
+            }else{
+                let resultDictionary = result as! [String:Any]
+                print("\(resultDictionary)")
+                
+                
+                let apiResponse = result as! [String : Any]
+                let dataDict = apiResponse["data"] as! [String : Any]
+                let responseDict = dataDict["response"] as! NSDictionary
+                
+                let msg = responseDict["message"]! as! String
+                self.showAlert(message: msg)
+            }
+        } */
+        
+        
+    }
+    
 }
