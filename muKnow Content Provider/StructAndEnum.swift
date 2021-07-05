@@ -21,6 +21,7 @@ struct LoginResponse {
     var userName : String!
     var email : String!
     var userType : String!
+    var phoneNo : String!
     var active : String!
     var imageUrl : String!
 

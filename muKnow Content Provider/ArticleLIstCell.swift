@@ -16,9 +16,6 @@ class ArticleLIstCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
-        
-        
     }
 
     override func layoutSubviews() {

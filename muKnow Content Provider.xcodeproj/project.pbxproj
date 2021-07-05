@@ -52,6 +52,9 @@
 		18A63FF525F22B250040A2A9 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A63FF425F22B250040A2A9 /* Reachability.swift */; };
 		18EB6AB826677C5400227A66 /* QuizQandACell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EB6AB626677C5400227A66 /* QuizQandACell.swift */; };
 		18EB6AB926677C5400227A66 /* QuizQandACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EB6AB726677C5400227A66 /* QuizQandACell.xib */; };
+		18F1F43E268D99800031D54D /* AllReviewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1F43D268D99800031D54D /* AllReviewsVC.swift */; };
+		18F1F444268D9B620031D54D /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F1F442268D9B620031D54D /* ReviewCell.swift */; };
+		18F1F445268D9B620031D54D /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F1F443268D9B620031D54D /* ReviewCell.xib */; };
 		8860839078DCA50072F938CF /* Pods_muKnow_Content_Provider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00245C45810C2850B8F7A0AD /* Pods_muKnow_Content_Provider.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +109,9 @@
 		18A63FF425F22B250040A2A9 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		18EB6AB626677C5400227A66 /* QuizQandACell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQandACell.swift; sourceTree = "<group>"; };
 		18EB6AB726677C5400227A66 /* QuizQandACell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizQandACell.xib; sourceTree = "<group>"; };
+		18F1F43D268D99800031D54D /* AllReviewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllReviewsVC.swift; sourceTree = "<group>"; };
+		18F1F442268D9B620031D54D /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		18F1F443268D9B620031D54D /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		2881C71E73AFCFA55A044731 /* Pods-muKnow Content Provider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-muKnow Content Provider.release.xcconfig"; path = "Target Support Files/Pods-muKnow Content Provider/Pods-muKnow Content Provider.release.xcconfig"; sourceTree = "<group>"; };
 		75AECBD3A12B3AE88C997D22 /* Pods-muKnow Content Provider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-muKnow Content Provider.debug.xcconfig"; path = "Target Support Files/Pods-muKnow Content Provider/Pods-muKnow Content Provider.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +174,7 @@
 		1823ED7025EE299800BF22DD /* muKnow Content Provider */ = {
 			isa = PBXGroup;
 			children = (
+				18F1F440268D9B280031D54D /* AllReviewCells */,
 				187DBA88263A9F82005338DA /* GoogleService-Info.plist */,
 				189165292632AFEA00E29127 /* muKnow Content Provider.entitlements */,
 				184E508825F764CB00139193 /* Extensions */,
@@ -203,6 +210,7 @@
 				18A63FF425F22B250040A2A9 /* Reachability.swift */,
 				184C1321261A0A1E00EA5B95 /* HomeCollectionViewCell.swift */,
 				186A7B9C26747A5900F15A80 /* FloatRatingView.swift */,
+				18F1F43D268D99800031D54D /* AllReviewsVC.swift */,
 			);
 			path = "muKnow Content Provider";
 			sourceTree = "<group>";
@@ -225,6 +233,15 @@
 				184E508A25F7655E00139193 /* StoryBoardExtension.swift */,
 			);
 			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		18F1F440268D9B280031D54D /* AllReviewCells */ = {
+			isa = PBXGroup;
+			children = (
+				18F1F442268D9B620031D54D /* ReviewCell.swift */,
+				18F1F443268D9B620031D54D /* ReviewCell.xib */,
+			);
+			path = AllReviewCells;
 			sourceTree = "<group>";
 		};
 		45B277E063EB4943B4705001 /* Pods */ = {
@@ -301,6 +318,7 @@
 				18055DCF265F99110067F174 /* FirstCell.xib in Resources */,
 				1823ED7B25EE299900BF22DD /* Assets.xcassets in Resources */,
 				18055DD52660B1D90067F174 /* SecondCell.xib in Resources */,
+				18F1F445268D9B620031D54D /* ReviewCell.xib in Resources */,
 				181B9FBE25FFA34300C4BECE /* ForgotViews in Resources */,
 				1823ED7925EE299800BF22DD /* Main.storyboard in Resources */,
 				1840DAE8266391E0002B3E94 /* DescriptionCell.xib in Resources */,
@@ -363,6 +381,7 @@
 				18921DA92600A43E00246724 /* ForgetPwOTPViewController.swift in Sources */,
 				184E50BC25F9FD6800139193 /* CommonFunctions.swift in Sources */,
 				188DBF3226732E63008ED414 /* ProfileTableViewCell.swift in Sources */,
+				18F1F43E268D99800031D54D /* AllReviewsVC.swift in Sources */,
 				18921DAC2600A44200246724 /* ChangeNewPWViewController.swift in Sources */,
 				1844C7A12612313200EA763A /* ImageExtension.swift in Sources */,
 				18055DCE265F99110067F174 /* FirstCell.swift in Sources */,
@@ -371,6 +390,7 @@
 				188B2A0625F678CB00174E44 /* Constants.swift in Sources */,
 				184E508B25F7655E00139193 /* StoryBoardExtension.swift in Sources */,
 				18921DA62600A3B500246724 /* ForgetPwdVC.swift in Sources */,
+				18F1F444268D9B620031D54D /* ReviewCell.swift in Sources */,
 				1815C85D26245F1C0003F679 /* ProfileDetailsVC.swift in Sources */,
 				18A63FF525F22B250040A2A9 /* Reachability.swift in Sources */,
 				18055DD92660C42D0067F174 /* MultiImgCVCell.swift in Sources */,

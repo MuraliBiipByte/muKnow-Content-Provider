@@ -9,8 +9,11 @@ import UIKit
 
 protocol FirstCellDelegate : class {
     
-    func openWriteReviewVC(articleId : Int)
-    func openRatingVC(articleId : Int)
+    
+    func openWriteReviewVC()
+    func openRatingVC()
+    //func openWriteReviewVC(articleId : Int)
+//    func openRatingVC(articleId : Int)
 }
 
 class FirstCell: UITableViewCell {
@@ -37,10 +40,10 @@ class FirstCell: UITableViewCell {
     }
     
     @IBAction func ratingBtnTapped(_ sender: UIButton) {
-        self.delegate?.openRatingVC(articleId: self.articleId!)
+        self.delegate?.openRatingVC()
     }
     
     @IBAction func writeReviewBtnTapped(_ sender: UIButton) {
-        self.delegate?.openWriteReviewVC(articleId: self.articleId!)
+        self.delegate?.openWriteReviewVC()
     }
 }

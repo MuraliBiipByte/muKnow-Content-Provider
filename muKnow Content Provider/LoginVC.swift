@@ -96,8 +96,10 @@ class LoginVC: UIViewController {
                     let username = "\(trainerDict.value(forKey: "username")!)"
                     let email = "\(trainerDict.value(forKey: "email")!)"
                     let user_type = "\(trainerDict.value(forKey: "user_type")!)"
+                    let phoneNo = "\(trainerDict.value(forKey: "phone")!)"
                     let active = "\(trainerDict.value(forKey: "active")!)"
                     let image_url = "\(trainerDict.value(forKey: "image_url")!)"
+                    
                     
                     let imgURL : URL = URL(string: image_url)!
                     self.downloadAndSaveImg(imageURL: imgURL)
@@ -108,6 +110,7 @@ class LoginVC: UIViewController {
                     aLoginResponseStruct.trainerId = trainerId
                     aLoginResponseStruct.userName = username
                     aLoginResponseStruct.email = email
+                    aLoginResponseStruct.phoneNo = phoneNo
                     aLoginResponseStruct.userType = user_type
                     aLoginResponseStruct.active = active
                     aLoginResponseStruct.imageUrl = image_url

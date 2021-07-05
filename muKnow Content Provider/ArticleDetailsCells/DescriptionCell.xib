@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ye6-5v-Wum">
-                        <rect key="frame" x="10" y="5" width="300" height="82"/>
+                        <rect key="frame" x="10" y="12" width="300" height="75"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                     <constraint firstItem="IsL-zP-33l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="FaB-ua-HMV"/>
                     <constraint firstItem="Ye6-5v-Wum" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="JCM-KZ-y6l"/>
                     <constraint firstItem="IsL-zP-33l" firstAttribute="top" secondItem="Ye6-5v-Wum" secondAttribute="bottom" id="SMY-BK-cZv"/>
-                    <constraint firstItem="Ye6-5v-Wum" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="SP1-tE-SA1"/>
+                    <constraint firstItem="Ye6-5v-Wum" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="SP1-tE-SA1"/>
                     <constraint firstItem="zbT-pH-yQg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="XzB-Lh-MpJ"/>
                     <constraint firstAttribute="trailing" secondItem="zbT-pH-yQg" secondAttribute="trailing" id="dTN-Hd-4N6"/>
                     <constraint firstItem="IyZ-SP-EzB" firstAttribute="trailing" secondItem="zbT-pH-yQg" secondAttribute="trailing" id="lOC-qA-ZrP"/>

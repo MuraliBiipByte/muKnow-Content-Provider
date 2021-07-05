@@ -76,7 +76,7 @@ class ProfileDetailsVC: UIViewController {
         let loginResponse = fetchLoginResponse()
         userNameLbl.text = loginResponse?.userName
         userEmail.text = loginResponse?.email
-//        userMobileNoLbl.text =
+        userMobileNoLbl.text = loginResponse?.phoneNo
         
         
         

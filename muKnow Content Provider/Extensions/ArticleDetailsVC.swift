@@ -205,7 +205,7 @@ extension ArticleDetailsVC: UITableViewDelegate,UITableViewDataSource {
             if self.Dict != nil {
                 //cell.articleId = self.articleId //self.Dict[""] as? String
                 cell.articleNameLbl.text = self.Dict["title"] as? String
-                
+                cell.articleId = self.Dict["article_id"] as? Int
                 let loginResponse = fetchLoginResponse()
                 cell.authorName.text = loginResponse?.userName
                 //cell.authorName.text =  "Murali" //"By \(self.Dict["author_name"] as! String)"
@@ -403,7 +403,7 @@ extension ArticleDetailsVC: UITableViewDelegate,UITableViewDataSource {
             }else{
                 cell.quizLbl.text = ""
                 cell.quizLblheightCons.constant = 0
-                cell.quizLblTopBorder.isHidden = true
+                cell.quizLblTopBorder.isHidden = false
                 cell.quizLblBottomBorder.isHidden = true
             }
             return cell
@@ -659,7 +659,7 @@ extension ArticleDetailsVC: UITableViewDelegate,UITableViewDataSource {
         if indexPath.row == 0 {
             return 150
         }else if indexPath.row == 1{
-            return 280
+            return 285
         }else if indexPath.row == 2{
             return UITableView.automaticDimension
         }else{
@@ -678,14 +678,14 @@ extension ArticleDetailsVC: UITableViewDelegate,UITableViewDataSource {
     }
 }
 extension ArticleDetailsVC : FirstCellDelegate {
-    
-    func openRatingVC(articleId: Int) {
-        //        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AllReviewsVCSBID") as! AllReviewsVC
-        //        vc.articlesID = self.articleId
-        //        self.navigationController?.pushViewController(vc, animated: true)
+
+    func openRatingVC() {
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "AllReviewsVCSBID") as! AllReviewsVC
+                vc.articlesID = self.articleId
+                self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func openWriteReviewVC(articleId: Int) {
+    func openWriteReviewVC() {
         //        let controller = self.storyboard?.instantiateViewController(withIdentifier: "WriteReviewViewController") as! WriteReviewViewController
         //        controller.articleId = articleId
         //        self.navigationController?.pushViewController(controller, animated: true)

@@ -14,6 +14,7 @@ func SaveLoginResponse(Struct:LoginResponse) {
                 "trainerId" : "\(Struct.trainerId!)",
                 "userName" : "\(Struct.userName!)",
                 "email" : "\(Struct.email!)",
+                "phoneNo" : "\(Struct.phoneNo!)",
                 "userType" : "\(Struct.userType!)",
                 "active" : "\(Struct.active!)",
                 "imageUrl" : "\(Struct.imageUrl!)"
@@ -39,6 +40,7 @@ func fetchLoginResponse() -> LoginResponse? {
             LoginObj.userName = "\(ResponceDict["userName"]!)"
             LoginObj.email = "\(ResponceDict["email"]!)"
             LoginObj.userType = "\(ResponceDict["userType"]!)"
+            LoginObj.phoneNo = "\(ResponceDict["phoneNo"]!)"
             LoginObj.active = "\(ResponceDict["active"]!)"
             LoginObj.imageUrl = "\(ResponceDict["imageUrl"]!)"
 

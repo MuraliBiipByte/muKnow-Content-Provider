@@ -81,7 +81,7 @@ class RegisterOTPVC: UIViewController {
                 let dataDict = apiResponse["data"] as! [String : Any]
                 let responseDict = dataDict["response"] as! NSDictionary
                 
-                
+                /*
                 let msg = responseDict["message"]! as! String
                 if msg == "Not Verified" {
                     DispatchQueue.main.async {
@@ -94,7 +94,23 @@ class RegisterOTPVC: UIViewController {
 
                     
                     self.showAlertWithAction(message: "Registered successfully", selector:#selector(self.moveToLoginPage))
+                } */
+                
+                let msg = responseDict["message"]! as! String
+                let status = "\(responseDict["status"]!)"
+                if status == "0" {
+                    DispatchQueue.main.async {
+                        //self.showAlert(message: "Invalid OTP")
+                        self.showAlert(message: msg)
+                    }
+                }else{
+//                    UserDefaults.standard.set(self.params["email"], forKey: "user_email")
+//                    UserDefaults.standard.set(self.params["id"], forKey: "user_id")
+
+                    
+                    self.showAlertWithAction(message: "Registered successfully", selector:#selector(self.moveToLoginPage))
                 }
+                
             }
         }
     }

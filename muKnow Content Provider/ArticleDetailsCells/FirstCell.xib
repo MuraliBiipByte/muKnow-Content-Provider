@@ -69,12 +69,26 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDr-y2-kWb">
+                                        <rect key="frame" x="121" y="7.5" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="lT7-d1-ZHv"/>
+                                        </constraints>
+                                        <state key="normal" title="Rating &gt;">
+                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="ratingBtnTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fbH-Et-LYA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Y45-3H-vBl" firstAttribute="height" secondItem="E4i-1i-TRl" secondAttribute="height" multiplier="0.444444" constant="0.75" id="1lK-N2-EHL"/>
                                     <constraint firstItem="Y45-3H-vBl" firstAttribute="centerY" secondItem="E4i-1i-TRl" secondAttribute="centerY" id="AzG-LF-ETz"/>
+                                    <constraint firstItem="yDr-y2-kWb" firstAttribute="centerY" secondItem="E4i-1i-TRl" secondAttribute="centerY" id="N5b-cY-Yyg"/>
                                     <constraint firstAttribute="height" constant="45" id="Q5D-W7-hM1"/>
+                                    <constraint firstItem="yDr-y2-kWb" firstAttribute="leading" secondItem="Y45-3H-vBl" secondAttribute="trailing" constant="5" id="Syw-RN-k1S"/>
                                     <constraint firstItem="Y45-3H-vBl" firstAttribute="leading" secondItem="E4i-1i-TRl" secondAttribute="leading" constant="16" id="yWL-ak-Wgz"/>
                                 </constraints>
                             </view>

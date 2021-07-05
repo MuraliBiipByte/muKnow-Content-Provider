@@ -38,14 +38,12 @@ struct WebServices {
     static let ARTICLE_LIST = "smiles_trainer_articles_list"
     static let ARTICLE_DETAIL = "smiles_trainer_articles_list_quiz_list"
     static let RESEND_OTP = "smiles_trainer_register_resendemail_otp"
+    static let REVIEWS = "smiles_reviews_articles_trainer"
 } 
 
 
 class ApiManager : NSObject {
  
-    
-    
-   
     func getRequest(service:String,param:String, completion: @escaping (_ result:Any,_ success:Bool) -> ())
         {
             let urlString = WebServices.BASE_URL_SERVICE + service + "/" + param
